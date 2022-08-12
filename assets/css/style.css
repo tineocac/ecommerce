@@ -18,7 +18,45 @@
   /*========== Font and typography ==========*/
   --body-font: 'Roboto', sans-serif;
 }
+*{
+  box-sizing: border-box;
+}
+body{
+  background-color: var(--body-color);
+}
 
+.loader{
+width: 100%;
+background-color: var(--body-color);
+height: 100%;
+position: fixed;
+top: 0;
+left: 0;
+display: grid;
+justify-content: center;
+align-items:center;
+
+}
+.loader__img{
+  width: 100px;
+  fill:var(--first-color);
+  animation: load 1.5s infinite;
+}
+@keyframes load{
+  0%{
+    transform: translateY(0);
+  }
+  50%{
+    transform: translateY(10px);
+  }
+  100%{
+    transform: translateY(0);
+  }
+}
+
+.hide{
+  display: none;
+}
 /*=============== THEME ===============*/
 /*========== Variables Dark theme ==========*/
 /*
