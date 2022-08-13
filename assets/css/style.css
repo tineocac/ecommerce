@@ -85,7 +85,11 @@ body{
 .hide{
   display: none;
 }
-
+.nav-tittle{
+  padding-right: 34%;
+  align-self: center;
+  font-weight: 600;
+}
 .nav{
   height: 3.5rem;
   display: flex;
@@ -114,14 +118,26 @@ body{
 }
 
 .nav--list{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  row-gap: 2rem;
+  position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: aqua;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 2rem;
+    padding-top: 23%;
+}
+.nav-list-menu{
+  text-align: center;
+
 }
 
-.nav--item{
+.list-item{
   list-style: none;
+  padding-bottom: 31%;
 }
 
 .nav--close, .bx-x{
@@ -185,4 +201,111 @@ box-shadow: ;
   100%{
     transform: translateY( 0 );
   }
+}
+
+.nav--list-menu{
+  background-color: var(--body-color);
+  position: absolute;
+  top: 104%;
+  right: 0%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 40%;
+  margin-top: 10%;
+  /* display: none; */
+}
+.list-a{
+  color: var(--title-color);
+
+}
+.list-item{
+  list-style: none;
+}
+.list-a:hover{
+  color: var(--first-color);
+  font-weight: 600;
+}
+
+
+/* star section red*/
+
+.red-container{
+  background-color: var(--first-color);
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 67%;
+    /* height: 60vh; */
+    z-index: -1;
+
+}
+.red-container__img{
+  background-color:transparent;
+  object-fit: contain;
+  width: 100%;
+  text-align: center;
+  padding-top: 62%;
+
+}
+
+.container-img{
+  width: 100%;
+  height: 100%;
+}
+
+/* star main*/
+
+.main-section{
+  margin-top: 120%;
+  padding: 0.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+}
+
+.main-tittle{
+
+}
+.main-info{
+  font-size: 12px;
+
+}
+
+.main-price{
+  color: var(--first-color);
+  font-weight: 600;
+
+}
+.btns{
+
+}
+
+.btn{
+  border: none;
+    padding: 7%;
+    font-weight: 600;
+}
+.btn-gray{
+  background-color: var(--card-color);
+    color: var(--button-color);
+}
+.btn-black{
+  background-color: var(--button-color);
+    color: var(--body-color);
+}
+
+.btn-gray:hover{
+  transform: scale(1.05);
+  transition: 200ms ease;
+  filter: brightness(0.9);
+}
+.btn-gray::before{
+  width: 100%;
+  height: 5em;
+  background-color: aqua;
 }

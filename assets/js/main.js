@@ -22,7 +22,7 @@ themeButton.addEventListener("click", () =>{
     }
 })
 
-/*=========CARRITO========*/
+/*=========CARRITO ABRIR Y CERRAR========*/
 const cartOpen = document.getElementById("cart-shop")
 const cartClose = document.getElementById("close-shop")
 const cartContainer = document.getElementById("cart--container")
@@ -32,6 +32,18 @@ cartOpen.addEventListener("click",() =>{
 })
 cartClose.addEventListener("click",()=>{
     cartContainer.classList.add("hide")
+})
+
+/*=========GRID ABRIR Y CERRAR========*/
+const gridOpen = document.getElementById("nav-toggle")
+const gridClose = document.getElementById("close-grid")
+const gridContainer = document.getElementById("nav--list")
+
+gridOpen.addEventListener("click",() =>{
+    gridContainer.classList.remove("hide")
+})
+gridClose.addEventListener("click",()=>{
+    gridContainer.classList.add("hide")
 })
 
 /*=========SCROLL========*/
