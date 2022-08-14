@@ -59,9 +59,8 @@ body{
   width: 100%;
 }
 .scroll-header{
-  background-color: var(--container-color);
-  box-shadow: 0 1px 4px black;
-
+  background-color: var(--title-color);
+  
 }
 .loader{
   width: 100%;
@@ -180,7 +179,6 @@ background-color:rgba(144, 140, 140, 0.658);
 position: fixed;
 top: 0;
 left: 0;
-box-shadow: ;
 }
 .cart{
   width: 100%;
@@ -268,44 +266,120 @@ box-shadow: ;
 
 }
 
-.main-tittle{
-
-}
 .main-info{
   font-size: 12px;
-
 }
 
 .main-price{
   color: var(--first-color);
   font-weight: 600;
-
-}
-.btns{
-
 }
 
 .btn{
   border: none;
-    padding: 7%;
+    padding: 6%;
     font-weight: 600;
 }
 .btn-gray{
   background-color: var(--card-color);
     color: var(--button-color);
+    transition: 200ms ease;
+    scroll-behavior: ;
 }
 .btn-black{
   background-color: var(--button-color);
     color: var(--body-color);
-}
-
+  }
+  
 .btn-gray:hover{
-  transform: scale(1.05);
   transition: 200ms ease;
+  transform: scale(1.05);
   filter: brightness(0.9);
 }
-.btn-gray::before{
+
+.btn-black:hover{
+  background-color: var(--first-color);
+  color: var(--container-color);
+  transition: 200ms ease;
+  transform: scale(1.05);
+  filter: brightness(0.9);
+}
+
+/* section produsts*/
+
+.products{
+  padding: 3.5rem 1.5rem;
+
+}
+.products-container{
+
+}
+.container-list{
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  row-gap: 28px;
+  column-gap: 16px;
+}
+
+.container-item{
+  width: 47%;
+  text-align: center;
+  border-right: solid lightgray;
+  line-height: 1.5rem;
+}
+
+footer{
+  background-color: var(--card-color);
   width: 100%;
-  height: 5em;
-  background-color: aqua;
+}
+.footer-info{
+  padding: 4.5rem 1.5rem 1.5rem;
+}
+
+.footer-info__container{
+  margin-bottom: 20%;
+
+}
+.footer-info__list{
+  list-style: none;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap; 
+  row-gap: 24px;
+  width: 54%;
+}
+
+
+.footer-info__item{
+  line-height: 2.5rem;
+
+}
+.item-tittle{
+  font-size: 18px;
+  font-weight: 600;
+
+}
+.item-subtittle{
+  
+}
+.footer-icons{
+  display: flex;
+  filter: invert(1);
+
+}
+.footer-icon{
+  padding-right: 10px;
+
+}
+.img-footer{
+  width: 90%;
+}
+.footer-last{
+  font-size: 12px;
+
+}
+.last-container{
+  text-align: center;
+
 }
