@@ -312,6 +312,7 @@ left: 0;
 
 }
 .products-container{
+ 
 
 }
 .container-list{
@@ -320,10 +321,11 @@ left: 0;
   list-style: none;
   row-gap: 28px;
   column-gap: 16px;
+  justify-content: center;
 }
 
 .container-item{
-  width: 47%;
+  width: 128px;
   text-align: center;
   border-right: solid lightgray;
   line-height: 1.5rem;
@@ -338,22 +340,25 @@ footer{
 }
 
 .footer-info__container{
-  margin-bottom: 20%;
-
+  margin-bottom: 5%;
+  padding: 0 1rem;
 }
+
 .footer-info__list{
   list-style: none;
   list-style: none;
   display: flex;
   flex-wrap: wrap; 
   row-gap: 24px;
-  width: 54%;
+  column-gap: 5rem; 
+  justify-content: space-between;
 }
 
 
 .footer-info__item{
   line-height: 2.5rem;
-
+  display: flex;
+  flex-direction: column;
 }
 .item-tittle{
   font-size: 18px;

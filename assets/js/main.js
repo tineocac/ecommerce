@@ -1,6 +1,7 @@
 
 document.addEventListener("DOMContentLoaded", () =>{
     load()
+    showProducts(items)
 })
 /* =========LOADER==========*/
 const loader = document.getElementById("loader")
@@ -94,3 +95,6 @@ const items = [
       quantity: 20
     }
   ]
+
+  /* =====MOSTRAR PRODUCTO===*/
+  
