@@ -284,7 +284,6 @@ left: 0;
   background-color: var(--card-color);
     color: var(--button-color);
     transition: 200ms ease;
-    scroll-behavior: ;
 }
 .btn-black{
   background-color: var(--button-color);
@@ -311,10 +310,7 @@ left: 0;
   padding: 3.5rem 1.5rem;
 
 }
-.products-container{
- 
 
-}
 .container-list{
   display: flex;
   flex-wrap: wrap;
