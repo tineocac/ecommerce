@@ -113,7 +113,7 @@ const productContainer = document.getElementById("products-list" )
         <div class="product-card" id="${product.id}">
             <div class="container-card-1">
             <img class ="showProduct-img" src=${product.image} alt="">
-            <button class="btn-add">ADD</button>
+            <button class="btn-add">+</button>
             </div>
             <div class="container-card-2">
             <span class="price-card">$${product.price}.00</span>
@@ -125,3 +125,14 @@ const productContainer = document.getElementById("products-list" )
     } )
     productContainer.innerHTML = fragment
 }
+
+let valor = 0
+
+function aumentarContador(){
+  let contador = document.querySelector(".counter");
+  valor++;
+  contador.textContent = valor;
+}
+
+const btnAdd = document.querySelector(".btn-add")
+
