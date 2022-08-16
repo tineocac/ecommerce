@@ -453,3 +453,45 @@ padding: 0.5rem 0.8rem;
   font-weight: 600;
   padding: 0.5rem 0.8rem;
 }
+
+@media screen and (min-width: 1024px){
+
+  .grid{
+   position: static; 
+  }
+  .red-container{
+    width: 287px;
+    right: 100px;
+  }
+
+  .products{
+    padding-top: 8.5rem;
+  }
+  .products-list{
+    padding: 0 4.5rem;
+  }
+  .main-section{
+    padding: 0.5rem 4.5rem ;
+    margin-top: 150px;
+  }
+
+  .main-tittle{
+    width: 14rem;
+  }
+
+  .main-info{
+    width: 22rem;
+  }
+
+  .btn{
+    padding: 13px;
+  }
+
+  .nav{
+    padding: .5rem 4.5rem;
+  }
+
+  .footer-info{
+    padding: 4.5rem 3.5rem 1.5rem;
+  }
+}
