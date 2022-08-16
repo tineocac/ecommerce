@@ -1,4 +1,30 @@
 
+const items = [
+    {
+      id: 1,
+      name: 'Hoodies',
+      price: 14.00,
+      image: './assets/images/featured1.png',
+      category: 'hoodies',
+      quantity: 10
+    },
+    {
+      id: 2,
+      name: 'Shirts',
+      price: 24.00,
+      image: './assets/images/featured2.png',
+      category: 'shirts',
+      quantity: 15
+    },
+    {
+      id: 3,
+      name: 'Sweatshirts',
+      price: 24.00,
+      image: './assets/images/featured3.png',
+      category: 'sweatshirts',
+      quantity: 20
+    }
+  ]
 document.addEventListener("DOMContentLoaded", () =>{
     load()
     showProducts(items)
@@ -37,16 +63,16 @@ cartClose.addEventListener("click",()=>{
 
 
 /*=========GRID ABRIR Y CERRAR========*/
-const gridOpen = document.getElementById("nav-toggle")
-const gridClose = document.getElementById("close-grid")
-const gridContainer = document.getElementById("nav--list")
+// const gridOpen = document.getElementById("nav-toggle")
+// const gridClose = document.getElementById("close-grid")
+// const gridContainer = document.getElementById("nav--list")
 
-gridOpen.addEventListener("click",() =>{
-    gridContainer.classList.remove("hide")
-})
-gridClose.addEventListener("click",()=>{
-    gridContainer.classList.add("hide")
-})
+// gridOpen.addEventListener("click",() =>{
+//     gridContainer.classList.remove("hide")
+// })
+// gridClose.addEventListener("click",()=>{
+//     gridContainer.classList.add("hide")
+// })
 
 /*=========SCROLL========*/
 const header=document.getElementById("header")
@@ -69,32 +95,29 @@ else{ header.classList.remove("scroll-header")}
 //   });})
 
 /*=============ITEMS=========== */
-const items = [
-    {
-      id: 1,
-      name: 'Hoodies',
-      price: 14.00,
-      image: 'assets/img/featured1.png',
-      category: 'hoodies',
-      quantity: 10
-    },
-    {
-      id: 2,
-      name: 'Shirts',
-      price: 24.00,
-      image: 'assets/img/featured2.png',
-      category: 'shirts',
-      quantity: 15
-    },
-    {
-      id: 3,
-      name: 'Sweatshirts',
-      price: 24.00,
-      image: 'assets/img/featured3.png',
-      category: 'sweatshirts',
-      quantity: 20
-    }
-  ]
+
+
+/* AÑADIR PRODUCTO */
+const productContainer = document.getElementById("products-list" )
 
   /* =====MOSTRAR PRODUCTO===*/
-  
+  function showProducts( products ){
+    let fragment = ``
+
+    products.map( product => {
+        fragment += `
+        <div class="product-card" id="${product.id}">
+            <div class="container-card-1">
+            <img class ="showProduct-img" src=${product.image} alt="">
+            <button class="btn-add">ADD</button>
+            </div>
+            <div class="container-card-2">
+            <span class="price-card">$${product.price}.00</span>
+            <small class="stock-card">Stock ${ product.quantity}</small>
+            <span class="name-card">${product.name}</span>
+            </div>
+        </div>
+        ` 
+    } )
+    productContainer.innerHTML = fragment
+}

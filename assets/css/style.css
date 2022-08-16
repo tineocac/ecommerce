@@ -386,5 +386,45 @@ footer{
 }
 .last-container{
   text-align: center;
+}
+.product-card{
+  width: 100%;
+}
+.container-card-1{
+  background-color: var(--text-color-light);
+    width: 190px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 0.3rem 0.3rem 0 0;
+}
+
+.container-card-2{
+  background-color: var(--body-color);
+text-align: center;
+height: 70px;
+width: 190px;
+margin-left: auto;
+margin-right: auto;
+border-radius: 0 0 0.3rem 0.3rem;
+padding: 0.5rem 1.5rem;
+text-align: left;
+}
+
+.showProduct-img{
+  width: 200px;
+
+}
+.btn-add{
+
+}
+.price-card{
+  font-weight: 600;}
+  border-right: solid lightgray;
+
+
+.stock-card{
+
+}
+.name-card{
 
 }
