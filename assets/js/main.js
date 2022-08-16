@@ -91,7 +91,6 @@ window.addEventListener("scroll",() =>{
 })
 
 /*=======scroll boton===========*/
-
 const discover = document.getElementById("discover")
 discover.addEventListener("click",() =>
 {window.scrollTo({
