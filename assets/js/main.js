@@ -25,10 +25,13 @@ const items = [
       quantity: 20
     }
   ]
+
 document.addEventListener("DOMContentLoaded", () =>{
     load()
     showProducts(items)
 })
+
+
 /* =========LOADER==========*/
 const loader = document.getElementById("loader")
 function load (){
@@ -63,36 +66,38 @@ cartClose.addEventListener("click",()=>{
 
 
 /*=========GRID ABRIR Y CERRAR========*/
-// const gridOpen = document.getElementById("nav-toggle")
-// const gridClose = document.getElementById("close-grid")
-// const gridContainer = document.getElementById("nav--list")
+const gridOpen = document.getElementById("nav-toggle")
+const gridClose = document.getElementById("close-grid")
+const gridContainer = document.getElementById("nav--list")
 
-// gridOpen.addEventListener("click",() =>{
-//     gridContainer.classList.remove("hide")
-// })
-// gridClose.addEventListener("click",()=>{
-//     gridContainer.classList.add("hide")
-// })
+gridOpen.addEventListener("click",() =>{
+    gridContainer.classList.remove("hide")
+})
+gridClose.addEventListener("click",()=>{
+    gridContainer.classList.add("hide")
+})
 
 /*=========SCROLL========*/
 const header=document.getElementById("header")
 const nav = document.getElementById("nav")
 
 window.addEventListener("scroll",() =>{
-    if(window.screenY >= 50){
-header.classList.add("scroll-header")}
-else{ header.classList.remove("scroll-header")}
+    
+    if(window.scrollY >= 50){
+      header.classList.add("scroll-header")
+    }else{ 
+      header.classList.remove("scroll-header")
+    }
 })
 
 /*=======scroll boton===========*/
 
-// const discover = document.getElementById("discover")
-// discover.addEventListener("click",() =>
-// {window.scrollTo({
-//     top: 100,
-//     left: 100,
-//     behavior: 'smooth'
-//   });})
+const discover = document.getElementById("discover")
+discover.addEventListener("click",() =>
+{window.scrollTo({
+    top: 0,
+      behavior: 'smooth'
+  });})
 
 /*=============ITEMS=========== */
 

@@ -58,8 +58,8 @@ body{
   left: 0;
   width: 100%;
 }
-.scroll-header{
-  background-color: var(--title-color);
+.header.scroll-header{
+  background-color: var(--container-color);
   
 }
 .loader{
@@ -117,7 +117,7 @@ body{
 }
 
 .nav--list{
-  position: absolute;
+  position: fixed;
     top: 0;
     right: 0;
     width: 100%;
@@ -128,6 +128,10 @@ body{
     align-items: center;
     row-gap: 2rem;
     padding-top: 23%;
+    z-index: 50;
+}
+.nav--list.hide{
+  display: none;
 }
 .nav-list-menu{
   text-align: center;
@@ -179,6 +183,7 @@ background-color:rgba(144, 140, 140, 0.658);
 position: fixed;
 top: 0;
 left: 0;
+z-index: 50;
 }
 .cart{
   width: 100%;
