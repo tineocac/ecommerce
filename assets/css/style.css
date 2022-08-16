@@ -456,9 +456,6 @@ padding: 0.5rem 0.8rem;
 
 @media screen and (min-width: 1024px){
 
-  .grid{
-   position: static; 
-  }
   .red-container{
     width: 287px;
     right: 100px;
