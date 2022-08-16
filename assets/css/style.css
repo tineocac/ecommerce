@@ -165,8 +165,26 @@ body{
   position: absolute;
   top: 0;
   right: 0;
+  padding-top: 10%;
   background-color: var(--container-color);
 }
+.shopping-paragraph{
+  text-align: center;
+}
+.shopping-tittle{
+  text-align: center;
+}
+.shopping-container-img{
+  display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+.shopping-empty{
+width: 100%;
+}
+
 
 /* GRID */
 .grid--container{
@@ -312,6 +330,7 @@ body{
   border-right: solid lightgray;
   line-height: 1.5rem;
 }
+
 
 /* FOOTER */
 footer{
