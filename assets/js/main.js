@@ -68,7 +68,7 @@ cartClose.addEventListener("click",()=>{
 /*=========GRID ABRIR Y CERRAR========*/
 const gridOpen = document.getElementById("nav-toggle")
 const gridClose = document.getElementById("close-grid")
-const gridContainer = document.getElementById("nav--list")
+const gridContainer = document.getElementById("grid--container")
 
 gridOpen.addEventListener("click",() =>{
     gridContainer.classList.remove("hide")

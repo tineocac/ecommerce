@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
+
+<!-- LOADER -->
     <div id="loader" class="loader">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48.92 56.48" class="loader--img">
           <title>Academlo Logo</title>
@@ -25,11 +27,13 @@
           </g>
       </svg>
     </div>
+
+<!-- HEADER -->
   <header class="header" id="header">
       <nav class="nav" id="nav">
         <a href="#" class="nav--logo">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48.92 56.48">
-              <title>Academlo Logo</title>
+            <title>Academlo Logo</title>
               <g>
                 <g>
                   <path
@@ -40,57 +44,59 @@
           </svg>
         </a>
         <p class="nav-tittle">STORE</p>
-        <div class="nav--menu">
-          
-          <div class="nav--close" id="clase-cart">
-            <i class='bx bx-x'></i>
-          </div>
-        </div>
 
-        <div class="nav--btns">
-          <i class='bx bx-moon change-theme' id="theme-button"></i>
+          <!-- BTNS -->
+          <div class="nav--btns">
+            <i class='bx bx-moon change-theme' id="theme-button"></i>
+            
+            <div class="nav--cart" id="cart-shop">
+              <i class='bx bx-shopping-bag'></i>
+              <span id="cart-counter" class="counter"></span>
+            </div>
 
-          <div class="nav--cart" id="cart-shop">
-            <i class='bx bx-shopping-bag'></i>
-            <span id="cart-counter" class="counter"></span>
-          </div>
+            <div class="nav--toggle" id="nav-toggle">
+              <i class='bx bx-grid-alt'></i>
+            </div>
+          </div> 
 
-          <div class="nav--toggle" id="nav-toggle">
-            <i class='bx bx-grid-alt'></i>
-          </div>
-        </div> 
+        <!-- CART -->
+            <div class="cart--container hide" id="cart--container">
+              <div class="cart" id="cart"> 
+                <i class='bx bx-x' id="close-shop"></i>
+              </div>
+            </div>
+        
+        <!-- GRID -->
+        <div class="grid--container hide" id="grid--container">
+          <div class="grid" id="grid">
+                <ul class="nav-list-grid" id="nav--list-grid">
+                  <li class="list-item">
+                    <a class="list-a" href="#">HOME</a>
+                  </li>
+                  <li class="list-item">
+                    <a class="list-a" href="#">PRODUCTS</a>
+                  </li>
+                </ul>
+                <div>
+                  <i class='bx bx-x' id="close-grid" ></i>
+                </div>
+              </div>
+            </div> 
+            
       </nav>
- </header>
- <main>
-    <section class="red-container">
-      <div class="red-container__img">
-        <img class="container-img" src="./assets/images/home.png" alt="">
-      </div>
-    </section> 
-    <div class="nav--list hide" id="nav--list">
-      <div class="grid" id="grid">
-        <ul class="nav-list-menu" id="nav--list-menu">
-          <li class="list-item">
-          <a class="list-a" href="#">HOME</a>
-         </li>
-         <li class="list-item"><a class="list-a" href="#">PRODUCTS</a></li>
-        </ul>
-      
-        <div>
-         <i class='bx bx-x' id="close-grid" ></i>
-        </div>
-      </div>
-    </div> 
+    </header>
+ 
+<!-- MAIN -->
+ <main> 
 
-    
-    <div class="cart--container hide" id="cart--container">
-      <div class="cart" id="cart"> 
-        <i class='bx bx-x' id="close-shop"></i>
-      </div>
-    </div>
+  <!-- RED CONTAINER -->
+       <section class="red-container">
+         <div class="red-container__img">
+           <img class="container-img" src="./assets/images/home.png" alt="">
+         </div>
+       </section> 
 
-   
-
+  <!-- MAIN SECTIONS -->
    <section class="main-section">
     <h2 class="main-tittle"> New Sweatshirt COLLECTIONS 2022</h2>
     <p class="main-info">Latest arrival of the new Hanes Midweight Crewneck sweatshirt imported from the 2022 series, with a modern design. </p>
@@ -125,7 +131,9 @@
   <section id="products-list">
       
   </section>
- </main>  
+ </main> 
+ 
+<!-- FOOTER -->
  <footer>
   <section class="footer-info">
     <div class="footer-info__container">
