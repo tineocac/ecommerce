@@ -1,57 +1,17 @@
 
-const items = [
-    {
-      id: 1,
-      name: 'Hoodies',
-      price: 14.00,
-      image: './assets/images/featured1.png',
-      category: 'hoodies',
-      quantity: 10
-    },
-    {
-      id: 2,
-      name: 'Shirts',
-      price: 24.00,
-      image: './assets/images/featured2.png',
-      category: 'shirts',
-      quantity: 15
-    },
-    {
-      id: 3,
-      name: 'Sweatshirts',
-      price: 24.00,
-      image: './assets/images/featured3.png',
-      category: 'sweatshirts',
-      quantity: 20
-    }
-  ]
+import { db } from './data/db.js'
+import { load, darkMode, scrollButton, scroll, numberToCurrency  } from './othersFiles.js'
+
 
 document.addEventListener("DOMContentLoaded", () =>{
     load()
-    showProducts(items)
+    scroll()
+    scrollButton()
+    darkMode()
+    showProducts(db)
     cartFunctionality()
     addProducts(cart)
-})
-
-
-/* =========LOADER==========*/
-const loader = document.getElementById("loader")
-function load (){
-    setTimeout( () =>{
-        loader.classList.add("hide")
-    }, 3000)
-}
-
-/* ======DARK MODE===*/
-const themeButton = document.getElementById("theme-button")
-
-themeButton.addEventListener("click", () =>{
-    document.body.classList.toggle("dark-theme")
-      if(themeButton.classList.contains("bx-moon")){
-        themeButton.classList.replace("bx-moon","bx-sun" )}
-    else{
-        themeButton.classList.replace("bx-sun","bx-moon" )
-    }
+    numberToCurrency()
 })
 
 /*=========CARRITO ABRIR Y CERRAR========*/
@@ -69,14 +29,15 @@ cartClose.addEventListener("click",()=>{
     cartContainer.classList.add("hide")
   })
 
+/*=======CART EMPTY=======*/
   shoppingItems.innerHTML=`
-   <div class = "shopping-container-img">
-       <img class = "shopping-empty" src="./assets/images/empty-cart.png">
-       <h2 class="shopping-tittle">Your cart is empty</h2>
-       <p class="shopping-paragraph">You can add items to your cart by clicking on the "<i class='bx bx-plus'></i>" button on the product page.</p>
-    </div> 
+  <div class = "shopping-container-img">
+      <img class = "shopping-empty" src="./assets/images/empty-cart.png">
+      <h2 class="shopping-tittle">Your cart is empty</h2>
+      <p class="shopping-paragraph">You can add items to your cart by clicking on the "<i class='bx bx-plus'></i>" button on the product page.</p>
+  </div> 
     `
-
+    
 /*=========GRID ABRIR Y CERRAR========*/
 const gridOpen = document.getElementById("nav-toggle")
 const gridClose = document.getElementById("close-grid")
@@ -89,31 +50,9 @@ gridClose.addEventListener("click",()=>{
     gridContainer.classList.add("hide")
 })
 
-/*=========SCROLL========*/
-const header=document.getElementById("header")
-const nav = document.getElementById("nav")
-
-window.addEventListener("scroll",() =>{
-    
-    if(window.scrollY >= 50){
-      header.classList.add("scroll-header")
-    }else{ 
-      header.classList.remove("scroll-header")
-    }
-})
-
-/*=======scroll boton===========*/
-const discover = document.getElementById("discover")
-discover.addEventListener("click",() =>
-{window.scrollTo({
-    top: 0,
-      behavior: 'smooth'
-  });})
-
-/*=============ITEMS=========== */
 
 
-/* AÑADIR PRODUCTO */
+/*=============DATA BASE=========== */
 const productContainer = document.getElementById("products-list" )
 
   /* =====MOSTRAR PRODUCTO===*/
@@ -138,13 +77,6 @@ const productContainer = document.getElementById("products-list" )
     productContainer.innerHTML = fragment
 }
 
-function numberToCurrency (value) {
-  return new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD'
-  }).format(value)
-}
-
 /*===AGREGAR AL CARRITO===*/
 let cantidadProductos = 0;
 
@@ -156,7 +88,7 @@ function cartFunctionality(){
   btnsAdd.forEach (button => {
     button.addEventListener("click", e =>{
       const id = parseInt(e.target.parentElement.id)
-      const selectProduct = items.find(item => item.id === id)
+      const selectProduct = db.find(item => item.id === id)
       cart.push(selectProduct)
       console.log(cart)
 
@@ -166,7 +98,7 @@ function cartFunctionality(){
   })
 }
 
-/* ======== shopping bag products =====*/
+/* ======== SHOPPING BAG PRODUCTS =====*/
 function addProducts(cart){
   let fragmentHTML = ``
   cart.forEach(product =>{
@@ -183,5 +115,5 @@ function addProducts(cart){
             </div>
         </div>`
   })
-   productContainer.innerHTML = fragmentHTML
+  productContainer.innerHTML = fragmentHTML
 }
