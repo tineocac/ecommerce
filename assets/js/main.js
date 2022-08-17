@@ -29,6 +29,8 @@ const items = [
 document.addEventListener("DOMContentLoaded", () =>{
     load()
     showProducts(items)
+    cartFunctionality()
+    addProducts(cart)
 })
 
 
@@ -67,9 +69,6 @@ cartClose.addEventListener("click",()=>{
     cartContainer.classList.add("hide")
   })
 
-  
-  if(counter === 0){
-
   shoppingItems.innerHTML=`
    <div class = "shopping-container-img">
        <img class = "shopping-empty" src="./assets/images/empty-cart.png">
@@ -77,13 +76,7 @@ cartClose.addEventListener("click",()=>{
        <p class="shopping-paragraph">You can add items to your cart by clicking on the "<i class='bx bx-plus'></i>" button on the product page.</p>
     </div> 
     `
-  }
-  else{
-    shoppingItems =` /*elementos del carrito*/
-    ` 
-  }
 
-  
 /*=========GRID ABRIR Y CERRAR========*/
 const gridOpen = document.getElementById("nav-toggle")
 const gridClose = document.getElementById("close-grid")
@@ -152,14 +145,43 @@ function numberToCurrency (value) {
   }).format(value)
 }
 
-// let valor = 0
+/*===AGREGAR AL CARRITO===*/
+let cantidadProductos = 0;
 
-// function aumentarContador(){
-//   let contador = document.querySelector(".counter");
-//   valor++;
-//   contador.textContent = valor;
-// }
+function cartFunctionality(){
+  const btnsAdd = document.querySelectorAll(".btn-add")
+  console.log(btnsAdd);
+  const cart = []
 
-// const btnAdd = document.querySelector(".btn-add")
+  btnsAdd.forEach (button => {
+    button.addEventListener("click", e =>{
+      const id = parseInt(e.target.parentElement.id)
+      const selectProduct = items.find(item => item.id === id)
+      cart.push(selectProduct)
+      console.log(cart)
 
-let contador = document.get
+      cantidadProductos++
+      counter.textContent = cantidadProductos
+    })
+  })
+}
+
+/* ======== shopping bag products =====*/
+function addProducts(cart){
+  let fragmentHTML = ``
+  cart.forEach(product =>{
+    fragmentHTML = `
+    <div class="product-card" id="${product.id}">
+            <div class="container-card-1">
+            <img class ="showProduct-img" src=${product.image} alt="">
+            <button class="btn-add"><i class='bx bx-plus'></i></button>
+            </div>
+            <div class="container-card-2">
+            <span class="price-card">${numberToCurrency(product.price)}</span>
+            <small class="stock-card">Stock ${ product.quantity}</small>
+            <span class="name-card">${product.name}</span>
+            </div>
+        </div>`
+  })
+   productContainer.innerHTML = fragmentHTML
+}
