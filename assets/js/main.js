@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () =>{
     scrollButton()
     darkMode()
     showProducts(items)
-    cartFunctionality()
+    cartFunctionality(items)
     // addProducts(cart)
     numberToCurrency()
 })
@@ -46,19 +46,38 @@ const cartContainer = document.getElementById("cart--container")
 
 cartOpen.addEventListener("click",() =>{
   cartContainer.classList.remove("hide")
+  // console.log(shoppingItems);
+  printItems();
 })
 cartClose.addEventListener("click",()=>{
   cartContainer.classList.add("hide")
 })
+
+function printItems() {
+  let products = shoppingItems;
+  let html = '';
+  if(products.length === 0) {
+    html = 'No hay productos';
+  } else {
+    products.map((product) => {
+      html += `<div>${product.name}</div>`
+    })
+  }
+  console.log(html);
+  cartContainer.innerHTML = html;
+}
 
 /*===COUNTER BAG===*/
 
 let counter = document.getElementById("cart-counter")
 let cantidadProductos = 0;
 // counter = cantidadProductos 78
-let shoppingItems = document.getElementById("cart-bag")
+// let shoppingItems = document.getElementById("cart-bag")
+let shoppingItems = [];
+// let shoppingBag = document.getElementById("cart-bag");
 
-function cartFunctionality(){
+
+function cartFunctionality(product){
   const btnsAdd = document.querySelectorAll(".btn-add")
   // console.log(btnsAdd); // [Todos los botones]
   const shoppingBag = []
@@ -73,32 +92,33 @@ function cartFunctionality(){
         // console.log(selectProduct);
       cantidadProductos++
       counter.textContent = cantidadProductos
-      shoppingBag.push(selectProduct)
+      // shoppingBag.push(selectProduct)
+      shoppingItems.push(selectProduct);
 
-      if(shoppingBag === 0){
+      // if(shoppingBag.length == 0){
 
-        shoppingItems.innerHTML=`
+        /* shoppingItems.innerHTML=`
         <div class = "shopping-container-img" id="bag-empty">
               <img class = "shopping-empty" src="./assets/images/empty-cart.png">
               <h2 class="shopping-tittle">Your cart is empty</h2>
               <p class="shopping-paragraph">You can add items to your cart by clicking on the "<i class='bx bx-plus'></i>" button on the product page.</p>
           </div> 
           `
-      }
-      else{shoppingItems.innerHTML=`
-      <div class="product-card" >
-      <div class="container-card-1" id="${product.id}">
-          <img class ="showProduct-img" src=${product.image} alt="">
-          <button class="btn-add"><i class='bx bx-plus'></i></button>
-          </div>
-          <div class="container-card-2">
-          <span class="price-card">${numberToCurrency(product.price)}</span>
-          <small class="stock-card">Stock ${ product.quantity}</small>
-          <span class="name-card">${product.name}</span>
-          </div>
-      </div>
-      `
-      }
+      } */
+      // else{shoppingItems.innerHTML=`
+      // <div class="product-card" >
+      // <div class="container-card-1" id="${items.id}">
+      //     <img class ="showProduct-img" src=${items.image} alt="">
+      //     <button class="btn-add"><i class='bx bx-plus'></i></button>
+      //     </div>
+      //     <div class="container-card-2">
+      //     <span class="price-card">${numberToCurrency(items.price)}</span>
+      //     <small class="stock-card">Stock ${ items.quantity}</small>
+      //     <span class="name-card">${items.name}</span>
+      //     </div>
+      // </div>
+      // `
+      // }
     })
   })
 }
