@@ -492,9 +492,60 @@ padding: 0.5rem 0.8rem;
 
   .nav{
     padding: .5rem 4.5rem;
+    justify-content: flex-start;
+
   }
 
   .footer-info{
     padding: 4.5rem 3.5rem 1.5rem;
   }
+
+/* MENU RESPONSIVE*/
+.grid{
+  height: 3.5rem;
+  top:18.4rem;
+  left:-5rem;
+  background-color: transparent;
+}
+.nav-list-grid{
+  display: flex;
+  column-gap: 7%;
+  justify-content: center;
+  margin-top:0
+}
+
+.nav--btns{
+  position: relative;
+  right: -25rem;
+}
+.grid--container{
+  background-color: transparent;
+  top: -16.7rem;
+  left: 168px;
+}
+#close-grid{
+  display: none;
+}
+#grid--container{
+  display: block;
+}
+.bx-grid-alt{
+  display: none;
+}
+}
+
+@media screen and (min-width: 1440px){
+.grid{
+ left:-6rem;
+}
+.nav--btns{
+  right: -42rem;
+}
+.nav-list-grid{
+  margin-top: -1px;
+  justify-content: end;
+}
+.grid--container{
+  display:none
+}
 }
