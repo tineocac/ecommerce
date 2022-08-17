@@ -96,9 +96,11 @@ body{
   top: 0;
   left: 0;
   width: 100%;
+  z-index: 90;
 }
 .header.scroll-header{
-  background-color: var(--container-color); 
+  background-color: var(--container-color);
+  z-index: 90; 
 }
 
 /* NAV */
@@ -155,7 +157,7 @@ body{
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 50;
+  z-index: 80;
 }
 .cart-tittle{
   text-align: center;
@@ -198,7 +200,7 @@ width: 100%;
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 50;
+  z-index: 80;
 }
 
 .grid{
@@ -248,7 +250,7 @@ width: 100%;
   top: 0;
   right: 0;
   width: 65vw;
-  z-index: -1;
+  z-index: 10;
 }
 
 .red-container__img{
@@ -375,7 +377,7 @@ footer{
 .footer-icons{
   display: flex;
   filter: invert(1);
-  z-index: -1;
+  z-index: 10;
 }
 .footer-icon{
   padding-right: 10px;
@@ -397,6 +399,7 @@ footer{
   width: 200px;
   margin-left: auto;
   margin-right: auto;
+  z-index: 10;
 }
 .products-list{
   display: flex;
@@ -408,7 +411,6 @@ footer{
 .container-card-1{
   background-color: var(--card-color);
   width: 190px;
-  z-index: -1;
   border-radius: 0.3rem 0.3rem 0 0;
   position: relative;
 }
