@@ -14,6 +14,31 @@ document.addEventListener("DOMContentLoaded", () =>{
     numberToCurrency()
 })
 
+/*=============PRODUCTS=========== */
+const productContainer = document.getElementById("products-list" )
+
+  /* =====MOSTRAR PRODUCTO HTML===*/
+  function showProducts( products ){
+    let fragment = ``
+    
+    products.map( product => {
+      fragment += `
+          <div class="product-card" id="${product.id}">
+          <div class="container-card-1">
+              <img class ="showProduct-img" src=${product.image} alt="">
+              <button class="btn-add"><i class='bx bx-plus'></i></button>
+              </div>
+              <div class="container-card-2">
+              <span class="price-card">${numberToCurrency(product.price)}</span>
+              <small class="stock-card">Stock ${ product.quantity}</small>
+              <span class="name-card">${product.name}</span>
+              </div>
+          </div>
+          ` 
+      } )
+      productContainer.innerHTML = fragment
+  }
+
 /*=========CARRITO ABRIR Y CERRAR========*/
 const cartOpen = document.getElementById("cart-shop")
 const cartClose = document.getElementById("close-shop")
@@ -25,6 +50,28 @@ cartOpen.addEventListener("click",() =>{
 cartClose.addEventListener("click",()=>{
   cartContainer.classList.add("hide")
 })
+
+/*===COUNTER BAG===*/
+let counter = document.getElementById("cart-counter")
+let cantidadProductos = 0;
+
+function cartFunctionality(){
+  const btnsAdd = document.querySelectorAll(".btn-add")
+  console.log(btnsAdd);
+  const cart = []
+  
+  btnsAdd.forEach (button => {
+    button.addEventListener("click", e =>{
+      const id = parseInt(e.target.parentElement.id)
+      const selectProduct = db.find(item => item.id === id)
+      cart.push(selectProduct)
+      console.log(cart)
+      
+      cantidadProductos++
+      counter.textContent = cantidadProductos
+    })
+  })
+}
 
 /*=======CART EMPTY=======*/
 let shoppingItems = document.getElementById("cart-bag")
@@ -51,51 +98,6 @@ gridOpen.addEventListener("click",() =>{
 
 
 
-/*=============PRODUCTS=========== */
-const productContainer = document.getElementById("products-list" )
 
-  /* =====MOSTRAR PRODUCTO HTML===*/
-  function showProducts( products ){
-    let fragment = ``
-    
-    products.map( product => {
-      fragment += `
-          <div class="product-card" id="${product.id}">
-          <div class="container-card-1">
-              <img class ="showProduct-img" src=${product.image} alt="">
-              <button class="btn-add"><i class='bx bx-plus'></i></button>
-              </div>
-              <div class="container-card-2">
-              <span class="price-card">${numberToCurrency(product.price)}</span>
-              <small class="stock-card">Stock ${ product.quantity}</small>
-              <span class="name-card">${product.name}</span>
-              </div>
-          </div>
-          ` 
-      } )
-      productContainer.innerHTML = fragment
-  }
-
-/*===COUNTER BAG===*/
-let counter = document.getElementById("cart-counter")
-let cantidadProductos = 0;
-
-function cartFunctionality(){
-  const btnsAdd = document.querySelectorAll(".btn-add")
-  console.log(btnsAdd);
-  const cart = []
-  
-  btnsAdd.forEach (button => {
-    button.addEventListener("click", e =>{
-      const id = parseInt(e.target.parentElement.id)
-      const selectProduct = db.find(item => item.id === id)
-      cart.push(selectProduct)
-      console.log(cart)
-      
-      cantidadProductos++
-      counter.textContent = cantidadProductos
-    })
-  })
-}
 
 
