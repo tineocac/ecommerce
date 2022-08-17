@@ -242,7 +242,6 @@ width: 100%;
   right: 1.5rem;
 }
 
-/* MAIN */
 /* RED CONTAINER*/
 .red-container{
   background-color: var(--first-color);
@@ -252,6 +251,8 @@ width: 100%;
   width: 65vw;
   z-index: 10;
 }
+
+/* MAIN */
 
 .red-container__img{
   background-color:transparent;
@@ -415,8 +416,6 @@ footer{
   position: relative;
 }
 
-
-
 .showProduct-img{
   width: 200px;
 }
@@ -460,6 +459,7 @@ padding: 0.5rem 0.8rem;
   padding: 0.5rem 0.8rem;
 }
 
+/* RESPONSIVE */
 @media screen and (min-width: 1024px){
 
   .red-container{
