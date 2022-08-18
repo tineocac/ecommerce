@@ -152,6 +152,9 @@ let cantidadProductos = 0;
   <p class="shopping-paragraph">You can add items to your cart by clicking on the "<i class='bx bx-plus'></i>" button on the product page.</p>
   </div>
   `
+  shoppingItems = []
+  cantidadProductos = 0
+  counter.textContent = cantidadProductos
   }) 
   
       /* ========== STOCK ======*/
