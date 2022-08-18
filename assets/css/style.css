@@ -431,6 +431,7 @@ footer{
   bottom: -18px;
   background-color: var(--body-color);
   color: var(--text-color);
+  cursor: pointer;
 }
 
 .btn-add:hover{
