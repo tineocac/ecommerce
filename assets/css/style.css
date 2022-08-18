@@ -433,6 +433,11 @@ footer{
   color: var(--text-color);
 }
 
+.btn-add:hover{
+  background-color: var(--first-color);
+  color: var(--container-color);
+}
+
 .container-card-2{
   background-color: var(--body-color);
   text-align: center;
@@ -537,6 +542,7 @@ color: var(--first-color);
     color: var(--body-color);
     font-weight: 600;
     border-radius: 0.3rem;
+    cursor: pointer;
   
 }
 .cart-total{
@@ -611,6 +617,7 @@ color: var(--first-color);
   top: -16.7rem;
   left: 168px;
   width: 350px;
+  height: 350px;
 }
 #close-grid{
   display: none;

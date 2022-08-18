@@ -1,6 +1,6 @@
 
 import { items } from './data/db.js'
-import { load, darkMode, scrollButton, scroll, numberToCurrency  } from './othersFiles.js'
+import { load, darkMode, scrollButton, scroll, numberToCurrency  } from './othersFuctions.js'
 
 
 document.addEventListener("DOMContentLoaded", () =>{
@@ -38,6 +38,7 @@ const productContainer = document.getElementById("products-list" )
           ` 
       } )
       productContainer.innerHTML = fragment
+      
   }
 
 /*=========CART (VARIABLES GLOBALES)========*/
@@ -103,15 +104,12 @@ function printItems() {
   cartBag.innerHTML = html;
 }
 
-
-
-
 /*===COUNTER BAG (VARIABLES GLOBALES)===*/
 let counter = document.getElementById("cart-counter")
 let cantidadProductos = 0;
 
-  /*=======SHOW & ADD ITEMS IN CART / INCREASE ITEM.CANTIDAD======*/
-  function cartFunctionality(product){
+/*=======SHOW & ADD ITEMS IN CART / INCREASE ITEM.CANTIDAD======*/
+function cartFunctionality(product){
     const btnsAdd = document.querySelectorAll(".btn-add")
     // console.log(btnsAdd); // [Todos los botones]
     
@@ -121,6 +119,7 @@ let cantidadProductos = 0;
         const id = parseInt(e.target.parentElement.parentElement.id)
         // console.log(id);
         const selectProduct = items.find(item => item.id === id)
+        
           // console.log(selectProduct);
         cantidadProductos++
         counter.textContent = cantidadProductos
@@ -131,9 +130,12 @@ let cantidadProductos = 0;
         cartTotal.innerHTML = `Cantidad de Productos: ${cantidadProductos}`
         
         let index = shoppingItems.indexOf(selectProduct)
+
         if (index !== -1){
           shoppingItems[index].cantidad++
-        }else{
+          shoppingItems[index].quantity--
+        }
+      else{
           selectProduct.cantidad = 1
           shoppingItems.push(selectProduct); 
         }
@@ -158,16 +160,15 @@ let cantidadProductos = 0;
   }) 
   
       /* ========== STOCK ======*/
-// const btnsAdd = document.querySelectorAll(".btn-add")
+
 
 // btnsAdd.addEventListener("click",e =>{
 //   const btnParetnID = parseInt(e.target.parentElement.parentElement.id)
-//   // if( btnParetnID === items.id){
+//   if( btnParetnID === items.id){
 //     items[btnParetnID].quantity--
-//     console.log(btnParentID);
-//   // }else{
-//   //   window.alert("No tenemos suficiente stock para tu pedido")
-//   // }
+//   }else{
+//     window.alert("No tenemos suficiente stock para tu pedido")
+//   }
 //   })
 
 
