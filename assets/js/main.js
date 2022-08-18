@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", () =>{
     showProducts(items)
     cartFunctionality(items)
     printItems(items)
+    // minusButton(items)
 })
 
 /*=============PRODUCTS=========== */
@@ -45,7 +46,7 @@ const cartClose = document.getElementById("close-shop")
 const cartContainer = document.getElementById("cart--container")
 const cart = document.getElementById("cart")
 let shoppingItems = [];
-console.log(shoppingItems);
+// console.log(shoppingItems);
 
 /*=======OPEN & CLOSE (CART)======= */
 cartOpen.addEventListener("click",() =>{
@@ -56,10 +57,10 @@ cartClose.addEventListener("click",()=>{
   cartContainer.classList.add("hide")
 })
 
+let checkout = document.querySelector('.checkout-container')  
+let cartBag = document.getElementById('cart-bag')
 /*=======PRINT ITEMS IN CART======*/
 function printItems() {
-  
-  let cartBag = document.getElementById('cart-bag')
   let html = ""
   if(shoppingItems.length === 0) {
     html = `
@@ -69,6 +70,7 @@ function printItems() {
       <p class="shopping-paragraph">You can add items to your cart by clicking on the "<i class='bx bx-plus'></i>" button on the product page.</p>
     </div>
     `
+    checkout.classList.add("hide")
   } else {             //este product se refiere a los elementos del shoppingItems
     shoppingItems.map((product) => {
       html += `
@@ -84,22 +86,35 @@ function printItems() {
       </div>
       <div class="cart__amount">
                     <div class="cart__amount-content">
-                    <span class="cart__amount__box">
-                    <i class="bx bx-minus"></i>
-                    </span>
+                    <button class="cart__amount__box minus">
+                    <i class="bx bx-minus" data-id=${product.id}></i>
+                    </button>
                     <span class="cart__amount-number">${product.cantidad} unidades</span>
-                    <span class="cart__amount__box">
-                    <i class="bx bx-plus"></i>
+                    <span class="cart__amount__box plus">
+                    <i class="bx bx-plus" data-id=${product.id}></i>
                     </span>
                     <i class="bx bx-trash-alt cart__amount-trash"></i>
                     </div>
         </div>
         </div>
       `
+      checkout.classList.remove("hide")
     })
+    
   }
   cartBag.innerHTML = html;
 }
+
+/*=======CHECKOUT======= */
+checkout.addEventListener("click", ()=>{
+cartBag.innerHTML =`
+<div class = "shopping-container-img" id="bag-empty">
+<img class = "shopping-empty" src="./assets/images/empty-cart.png">
+<h2 class="shopping-tittle">Your cart is empty</h2>
+<p class="shopping-paragraph">You can add items to your cart by clicking on the "<i class='bx bx-plus'></i>" button on the product page.</p>
+</div>
+`
+}) 
 
 /*===COUNTER BAG (VARIABLES GLOBALES)===*/
 let counter = document.getElementById("cart-counter")
@@ -114,7 +129,7 @@ let cantidadProductos = 0;
       button.addEventListener("click", e =>{
         // console.log(e);
         const id = parseInt(e.target.parentElement.parentElement.id)
-        console.log(id);
+        // console.log(id);
         const selectProduct = items.find(item => item.id === id)
           // console.log(selectProduct);
         cantidadProductos++
@@ -156,6 +171,33 @@ gridOpen.addEventListener("click",() =>{
   gridClose.addEventListener("click",()=>{
     gridContainer.classList.add("hide")
 })
+
+/*=======BUTTONS CART=======*/
+// const plusItems = document.querySelectorAll(".plus")
+
+// function minusButton (products){
+//   const minusItems = document.querySelectorAll(".minus")
+//   console.log(minusItems);
+// }
+
+// minusItems.forEach(button => {
+//   button.addEventListener('click', (shoppingItems) => {
+//     let id = parseInt(button.getAttribute('data-id'))
+//     let pruebaMinus = shoppingItems[id]
+//   })
+// })
+
+// plusItems.forEach(button =>console.log(button));
+  // button.addEventListener('click', (shoppingItems) => {
+  //   let id = parseInt(button.getAttribute('data-id'))
+  //   let prueba = shoppingItems[id]
+//   })
+// })
+
+
+
+
+
 
 
 
