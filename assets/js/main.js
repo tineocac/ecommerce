@@ -57,8 +57,8 @@ cartClose.addEventListener("click",()=>{
   cartContainer.classList.add("hide")
 })
 
-let checkout = document.querySelector('.checkout-container')  
-let cartBag = document.getElementById('cart-bag')
+let checkout = document.querySelector(".checkout-container")  
+let cartBag = document.getElementById("cart-bag")
 /*=======PRINT ITEMS IN CART======*/
 function printItems() {
   let html = ""
@@ -70,7 +70,7 @@ function printItems() {
       <p class="shopping-paragraph">You can add items to your cart by clicking on the "<i class='bx bx-plus'></i>" button on the product page.</p>
     </div>
     `
-    checkout.classList.add("hide")
+    // checkout.classList.add("hide")
   } else {             //este product se refiere a los elementos del shoppingItems
     shoppingItems.map((product) => {
       html += `
@@ -105,8 +105,11 @@ function printItems() {
   cartBag.innerHTML = html;
 }
 
+
+
 /*=======CHECKOUT======= */
 checkout.addEventListener("click", ()=>{
+  checkout.classList.add("hide")
 cartBag.innerHTML =`
 <div class = "shopping-container-img" id="bag-empty">
 <img class = "shopping-empty" src="./assets/images/empty-cart.png">
@@ -133,7 +136,12 @@ let cantidadProductos = 0;
         const selectProduct = items.find(item => item.id === id)
           // console.log(selectProduct);
         cantidadProductos++
+
+                /*== how many items ==*/
         counter.textContent = cantidadProductos
+        let cartTotal = document.querySelector(".cart-total")
+
+        cartTotal.innerHTML = `Cantidad de Productos: ${cantidadProductos}`
         
         let index = shoppingItems.indexOf(selectProduct)
         if (index !== -1){
@@ -145,6 +153,7 @@ let cantidadProductos = 0;
       })
     })
   }
+
 
       /* ========== STOCK ======*/
 // const btnsAdd = document.querySelectorAll(".btn-add")
