@@ -84,9 +84,9 @@ function printItems() {
       </div>
       <div class="cart__amount">
                     <div class="cart__amount-content">
-                    <button class="cart__amount__box minus">
+                    <span class="cart__amount__box minus">
                     <i class="bx bx-minus" data-id=${product.id}></i>
-                    </button>
+                    </span>
                     <span class="cart__amount-number">${product.cantidad} unidades</span>
                     <span class="cart__amount__box plus">
                     <i class="bx bx-plus" data-id=${product.id}></i>
@@ -105,18 +105,6 @@ function printItems() {
 
 
 
-/*=======CHECKOUT======= */
-let checkout = document.querySelector(".checkout-container")  
-checkout.addEventListener("click", ()=>{
-checkout.classList.add("hide")
-cartBag.innerHTML =`
-<div class = "shopping-container-img" id="bag-empty">
-<img class = "shopping-empty" src="./assets/images/empty-cart.png">
-<h2 class="shopping-tittle">Your cart is empty</h2>
-<p class="shopping-paragraph">You can add items to your cart by clicking on the "<i class='bx bx-plus'></i>" button on the product page.</p>
-</div>
-`
-}) 
 
 /*===COUNTER BAG (VARIABLES GLOBALES)===*/
 let counter = document.getElementById("cart-counter")
@@ -152,8 +140,20 @@ let cantidadProductos = 0;
       })
     })
   }
-
-
+  
+  /*=======CHECKOUT======= */
+  let checkout = document.querySelector(".checkout-container")  
+  checkout.addEventListener("click", ()=>{
+  checkout.classList.add("hide")
+  cartBag.innerHTML =`
+  <div class = "shopping-container-img" id="bag-empty">
+  <img class = "shopping-empty" src="./assets/images/empty-cart.png">
+  <h2 class="shopping-tittle">Your cart is empty</h2>
+  <p class="shopping-paragraph">You can add items to your cart by clicking on the "<i class='bx bx-plus'></i>" button on the product page.</p>
+  </div>
+  `
+  }) 
+  
       /* ========== STOCK ======*/
 // const btnsAdd = document.querySelectorAll(".btn-add")
 
