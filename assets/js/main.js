@@ -57,7 +57,6 @@ cartClose.addEventListener("click",()=>{
   cartContainer.classList.add("hide")
 })
 
-let checkout = document.querySelector(".checkout-container")  
 let cartBag = document.getElementById("cart-bag")
 /*=======PRINT ITEMS IN CART======*/
 function printItems() {
@@ -68,14 +67,13 @@ function printItems() {
       <img class = "shopping-empty" src="./assets/images/empty-cart.png">
       <h2 class="shopping-tittle">Your cart is empty</h2>
       <p class="shopping-paragraph">You can add items to your cart by clicking on the "<i class='bx bx-plus'></i>" button on the product page.</p>
-    </div>
+      </div>
     `
-    // checkout.classList.add("hide")
   } else {             //este product se refiere a los elementos del shoppingItems
     shoppingItems.map((product) => {
       html += `
       <div class="cart-container-card-1" id="${product.id}">
-          <img class ="cart-showProduct-img" src=${product.image} alt="">
+      <img class ="cart-showProduct-img" src=${product.image} alt="">
       </div>
           <div class="cart-container-card-2">
           <span class="cart-name-card">${product.name}</span>
@@ -108,8 +106,9 @@ function printItems() {
 
 
 /*=======CHECKOUT======= */
+let checkout = document.querySelector(".checkout-container")  
 checkout.addEventListener("click", ()=>{
-  checkout.classList.add("hide")
+checkout.classList.add("hide")
 cartBag.innerHTML =`
 <div class = "shopping-container-img" id="bag-empty">
 <img class = "shopping-empty" src="./assets/images/empty-cart.png">
@@ -136,9 +135,9 @@ let cantidadProductos = 0;
         const selectProduct = items.find(item => item.id === id)
           // console.log(selectProduct);
         cantidadProductos++
+        counter.textContent = cantidadProductos
 
                 /*== how many items ==*/
-        counter.textContent = cantidadProductos
         let cartTotal = document.querySelector(".cart-total")
 
         cartTotal.innerHTML = `Cantidad de Productos: ${cantidadProductos}`
