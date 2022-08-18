@@ -58,10 +58,10 @@ cartClose.addEventListener("click",()=>{
 
 /*=======PRINT ITEMS IN CART======*/
 function printItems() {
-  let products = shoppingItems;
+  
   let cartBag = document.getElementById('cart-bag')
   let html = ""
-  if(products.length === 0) {
+  if(shoppingItems.length === 0) {
     html = `
     <div class = "shopping-container-img" id="bag-empty">
       <img class = "shopping-empty" src="./assets/images/empty-cart.png">
@@ -69,17 +69,17 @@ function printItems() {
       <p class="shopping-paragraph">You can add items to your cart by clicking on the "<i class='bx bx-plus'></i>" button on the product page.</p>
     </div>
     `
-  } else {
-    products.map((product) => {
+  } else {             //este product se refiere a los elementos del shoppingItems
+    shoppingItems.map((product) => {
       html += `
-      <div class="container-card-1" id="${product.id}">
-          <img class ="showProduct-img" src=${product.image} alt="">
-          <button class="btn-add"><i class='bx bx-plus'></i></button>
-          </div>
-          <div class="container-card-2">
-          <span class="price-card">${numberToCurrency(product.price)}</span>
-          <small class="stock-card">Stock ${ product.quantity}</small>
-          <span class="name-card">${product.name}</span>
+      <div class="cart-container-card-1" id="${product.id}">
+          <img class ="cart-showProduct-img" src=${product.image} alt="">
+      </div>
+          <div class="cart-container-card-2">
+          <span class="cart-name-card">${product.name}</span>
+          <small class="cart-stock-card">Stock ${ product.quantity}</small>
+          <span class="cart-price-card">${numberToCurrency(product.price)}</span>
+          <span class="subtotal">Subtotal: ${numberToCurrency(product.price*product.cantidad) }</span>
           </div>
       </div>
       <div class="cart__amount">
@@ -91,8 +91,8 @@ function printItems() {
                     <span class="cart__amount__box">
                     <i class="bx bx-plus"></i>
                     </span>
-                    </div>
                     <i class="bx bx-trash-alt cart__amount-trash"></i>
+                    </div>
         </div>
         </div>
       `
@@ -101,34 +101,49 @@ function printItems() {
   cartBag.innerHTML = html;
 }
 
-// if(cart.include(items.id === 1)){
-//   product.cantidad += 1
-// }
-
 /*===COUNTER BAG (VARIABLES GLOBALES)===*/
 let counter = document.getElementById("cart-counter")
 let cantidadProductos = 0;
 
-  /*=======SHOW & ADD ITEMS IN CART======*/
+  /*=======SHOW & ADD ITEMS IN CART / INCREASE ITEM.CANTIDAD======*/
   function cartFunctionality(product){
     const btnsAdd = document.querySelectorAll(".btn-add")
     // console.log(btnsAdd); // [Todos los botones]
-    const shoppingBag = []
-    // console.log(shoppingBag);
     
     btnsAdd.forEach (button => {
       button.addEventListener("click", e =>{
         // console.log(e);
         const id = parseInt(e.target.parentElement.parentElement.id)
-        // console.log(id);
+        console.log(id);
         const selectProduct = items.find(item => item.id === id)
           // console.log(selectProduct);
         cantidadProductos++
         counter.textContent = cantidadProductos
-        shoppingItems.push(selectProduct); 
+        
+        let index = shoppingItems.indexOf(selectProduct)
+        if (index !== -1){
+          shoppingItems[index].cantidad++
+        }else{
+          selectProduct.cantidad = 1
+          shoppingItems.push(selectProduct); 
+        }
       })
     })
   }
+
+      /* ========== STOCK ======*/
+// const btnsAdd = document.querySelectorAll(".btn-add")
+
+// btnsAdd.addEventListener("click",e =>{
+//   const btnParetnID = parseInt(e.target.parentElement.parentElement.id)
+//   // if( btnParetnID === items.id){
+//     items[btnParetnID].quantity--
+//     console.log(btnParentID);
+//   // }else{
+//   //   window.alert("No tenemos suficiente stock para tu pedido")
+//   // }
+//   })
+
 
   /*=========GRID ABRIR Y CERRAR========*/
 const gridOpen = document.getElementById("nav-toggle")
@@ -143,25 +158,6 @@ gridOpen.addEventListener("click",() =>{
 })
 
 
-
-let red = [];
-let black = [] ;
-let white = [];
-
-function numberProdcuts (array) {
-    const object = array.map(object.id === 1)
-    red.push(object)
-    // console.log(object);
-    return object
-        
-
-}
-
-console.log(numberProdcuts(shoppingItems)); 
-
-// 0: {id: 2, name: 'Shirts', price: 24, image: './assets/images/featured2.png', category: 'shirts', …}
-// 1: {id: 2, name: 'Shirts', price: 24, image: './assets/images/featured2.png', category: 'shirts', …}
-// 2: {id: 2, name: 'Shirts', price: 24, image: './assets/images/featured2.png', category: 'shirts', …}
 
 
 
