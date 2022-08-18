@@ -482,9 +482,16 @@ padding: 0.5rem 0.8rem;
   width: 13rem;
   margin-left: 7rem;
 }
+
+.cart__amount__box{
+  padding-right: 11px;
+
 }
-.cart
-.bx-trash-alt{
+.cart__amount-number{
+  padding: 1px 11px;
+
+}
+.cart__amount-trash{
 color: var(--first-color);
 }
 .subtotal{
@@ -493,7 +500,6 @@ color: var(--first-color);
 
 }
 .cart-container-card-1{
-  background-color: var(--body-color);
   border: 0.1px solid lightgray;
   width: 100px;
   border-radius: 0.3rem 0.3rem 0 0;
@@ -509,7 +515,7 @@ color: var(--first-color);
   width: 138px;
   border-radius: 0 0 0.3rem 0.3rem;
   text-align: star;
-  padding-top: 13px;
+  padding-top: 2rem;
   padding-left: 8px;
   line-height: 24px;
 }
