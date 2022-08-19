@@ -443,6 +443,8 @@ footer{
   background-color: var(--body-color);
   color: var(--text-color);
   cursor: pointer;
+  line-height: 1px;
+  box-shadow: 1px 1px 1px var(--text-color-light);
 }
 
 .btn-add:hover{
