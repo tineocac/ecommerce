@@ -382,7 +382,14 @@ footer{
 .item-tittle{
   font-size: 18px;
   font-weight: 600;
+}
 
+.item-subtittle:hover{
+  color:var(--first-color);
+  transition: 200ms ease;
+  transform: scale(1.30);
+  filter: brightness(0.9);
+ cursor: pointer;
 }
 
 .footer-icons{
@@ -424,7 +431,7 @@ footer{
   width: 190px;
   border-radius: 0.3rem 0.3rem 0 0;
   position: relative;
-  box-shadow: 1px 1px 1px var(--card-color);
+  box-shadow: 2px 2px 2px var(--card-color);
 }
 
 .showProduct-img{
@@ -472,6 +479,7 @@ footer{
   padding-top: 13px;
   box-shadow: 2px 2px 1px var(--card-color);
   }
+
 .price-card{
 font-weight: 600;
 font-size: 16px;
