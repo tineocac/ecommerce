@@ -382,17 +382,7 @@ footer{
 .item-tittle{
   font-size: 18px;
   font-weight: 600;
-}
 
-.item-subtittle{
-  cursor: pointer;
-}
-
-.item-subtittle:hover{
-  color: var(--first-color);
-  transition: 200ms ease;
-  transform: scale(1.05);
-  filter: brightness(0.9);
 }
 
 .footer-icons{
@@ -453,7 +443,6 @@ footer{
   background-color: var(--body-color);
   color: var(--text-color);
   cursor: pointer;
-  box-shadow: 2px 2px 1px var(--text-color-light);
 }
 
 .btn-add:hover{
