@@ -122,7 +122,7 @@ function cartFunctionality(product){
         
           // console.log(selectProduct);
         cantidadProductos++
-        selectProduct.quantity--
+      
         counter.textContent = cantidadProductos
 
                 /*== how many items ==*/
@@ -134,7 +134,7 @@ function cartFunctionality(product){
 
         if (index !== -1){
           shoppingItems[index].cantidad++
-          shoppingItems[index].quantity--
+          
         }
       else{
           selectProduct.cantidad = 1
