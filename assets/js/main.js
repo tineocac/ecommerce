@@ -97,7 +97,7 @@ function printItems() {
         </div>
         </div>
       `
-      checkout.classList.remove("hide")
+      checkoutContainer.classList.remove("hide")
     })
     
   }
@@ -122,6 +122,7 @@ function cartFunctionality(product){
         
           // console.log(selectProduct);
         cantidadProductos++
+        selectProduct.quantity--
         counter.textContent = cantidadProductos
 
                 /*== how many items ==*/
@@ -144,9 +145,10 @@ function cartFunctionality(product){
   }
   
   /*=======CHECKOUT======= */
-  let checkout = document.querySelector(".checkout-container")  
+  let checkoutContainer = document.querySelector(".checkout-container") 
+  let checkout = document.querySelector(".checkout") 
   checkout.addEventListener("click", ()=>{
-  checkout.classList.add("hide")
+  checkoutContainer.classList.add("hide")
   cartBag.innerHTML =`
   <div class = "shopping-container-img" id="bag-empty">
   <img class = "shopping-empty" src="./assets/images/empty-cart.png">
